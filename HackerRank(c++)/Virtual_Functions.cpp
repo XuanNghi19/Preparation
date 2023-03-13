@@ -33,6 +33,7 @@ public:
 class Student : public Person
 {
 private:
+    int publications;
     int cur_id;
     int marks[6];
 public:
@@ -42,6 +43,7 @@ public:
     void getdata() override
     {
         Person::getdata();
+        cin >> publications;
         cur_id = id_GS;
         id_GS++;
         for(int i=0; i<6; i++)
@@ -52,6 +54,7 @@ public:
     void putdata() override
     {
         Person::putdata();
+        cout << publications << " ";
         int sum=0;
         for(int i=0;i<6;i++) sum += marks[i];
         cout << sum << " " << cur_id << endl;
@@ -86,7 +89,7 @@ public:
 
 int main(){
 
-    const int n, val;
+    int n, val;
     cin>>n; //The number of objects that is going to be created.
     Person *per[n];
 
